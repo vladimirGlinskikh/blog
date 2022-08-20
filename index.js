@@ -1,5 +1,11 @@
 import express from 'express';
 import jwt from "jsonwebtoken";
+import mongoose from 'mongoose';
+
+mongoose
+    .connect('mongodb://localhost:27017/blogdb')
+    .then(() => console.log('DB connected is OK'))
+    .catch((err) => console.log('DB connected is error', err));
 
 const app = express();
 
