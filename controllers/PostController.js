@@ -53,7 +53,7 @@ export const getOne = async (req, res) => {
                     });
                 }
                 res.json(doc);
-            },);
+            },).populate('user');
     } catch (err) {
         console.log(err);
         res.status(500).json({
@@ -94,7 +94,7 @@ export const create = async (req, res) => {
     try {
         const doc = new PostModel({
             title: req.body.title,
-            text: req.body.title,
+            text: req.body.text,
             imageUrl: req.body.imageUrl,
             tags: req.body.tags,
             user: req.userId,
